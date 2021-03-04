@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const UserRanks = (props) => {
-   const { rank, image, name, bib, age, gender, time, score }  = props;
+   const { cts, rank, image, name, bib, age, gender, time, score }  = props;
 
    const st1 = {
 	display: "grid",
@@ -12,12 +12,14 @@ const UserRanks = (props) => {
 	padding: "0px 0px",
 	boxShadow: "0 2px 4px rgba(0,0, 0, 0.3)"
    }
+   const st1resp = { ...st1, gridTemplateColumns: "100%" }
    
    const st2 = {
         fontFamily: "Roboto",
 	display: "grid",
 	gridTemplateColumns: "40px 75px 1fr"
    }
+   const st2resp = { ...st2, gridTemplateColumns: "55px 55px 1fr" }
    
    const st3 = {
 	backgroundImage: `url(${image})`,
@@ -35,7 +37,8 @@ const UserRanks = (props) => {
    	display: "grid",
 	gridTemplateColumns: "repeat(5, 1fr)",
 	fontSize: "12px",
-	alignContent: "stretch"
+	alignContent: "stretch",
+	fontFamily: "Roboto"
    }
 
    const st6 = value =>  {
@@ -45,11 +48,11 @@ const UserRanks = (props) => {
 
 	switch(value) {
 		case 4:
-		return st3;
+		return cts(st3, { ...st3, fontSize: "14px" });
 		case 3:
-		return st2;
+		return cts(st2, { ...st2, fontSize: "14px" });
 		default:
-		return st1;
+		return cts(st1, { ...st1, height: "40px", backgroundColor: "Silver", color: "white" });
 	}
    }
 
@@ -58,8 +61,8 @@ const UserRanks = (props) => {
    const showScore = SCORE.map((e, k) => (<div key={k} style={st6(k)}>{e}</div>));
 
 	return (
-	   <div style={st1}>
-	      <div style={st2}>
+	   <div style={cts(st1, st1resp)}>
+	      <div style={cts(st2, st2resp)}>
 		<h5 style={{ textAlign: "center" }}>{rank}</h5>
 		<div style={st3} />
 		<h3 style={st4}>{name}</h3>
