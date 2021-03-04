@@ -2,10 +2,11 @@ import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import LinearProgress from "@material-ui/core/LinearProgress";
 
-const ProgressStats = ({ name, value, color }) => {
+const ProgressStats = ({ cts, name, value, color }) => {
+
    const ColorLinearProgress = withStyles(() => ({
 	root: {
-		height: 16,
+		height: cts({ h: 16}, { h: 10}).h,
 		borderRadius: 0,
 	},
 	bar: {
@@ -23,11 +24,13 @@ const ProgressStats = ({ name, value, color }) => {
         fontSize: "12px"	
 	
     }
+    const st1resp = { ...st1, gridTemplateColumns: "100px 30px 60%", padding: "10px 10px 0px 10px", fontSize: "10px" }
     
     const st2 = {
 	color: "DimGray",
 	paddingLeft: "24px"
     }
+    const st2resp = { ...st2, paddingLeft: "12px" }
 
     const st3 = {
 	color: `${color}`, 
@@ -45,8 +48,8 @@ const ProgressStats = ({ name, value, color }) => {
 	backgroundColor: "Silver",
    }
 	return (
-		<div style={st1}>
-			<div style={st2}>{name}</div>
+		<div style={cts(st1, st1resp)}>
+			<div style={cts(st2, st2resp)}>{name}</div>
 			<div style={st3}>{value}</div>
 			<ColorLinearProgress variant="determinate" value={value} style={st4} props={{ color }} />
 		</div>
