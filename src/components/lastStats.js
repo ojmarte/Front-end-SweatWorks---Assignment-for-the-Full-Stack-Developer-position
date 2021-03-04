@@ -4,7 +4,7 @@ import MainStats from './mainStats.js';
 import './layout.css';
 import maria from '../images/maria.jpg';
 
-const AllRankStats = () => {
+const AllRankStats = ({ cts }) => {
     const [hasClass, setHasClass] = useState(true)
     const turnOffClass = () => setHasClass(hasClass => !hasClass);	
 
@@ -17,8 +17,8 @@ const AllRankStats = () => {
 
 	return (
 		<div style={st1} onClick={turnOffClass} role="button" onKeyPress={0} tabIndex="0">
-			<UserRank rank={1} image={maria} name="Maria Dorotea" bib={1255} age={25} gender="F" time="14:35" score={45} />
-			<div style={{ margin: "0px", padding: "0px" }} className={(hasClass) ? 'slide-down' : 'slide-down height'}><MainStats /></div>
+			<UserRank cts={cts} rank={1} image={maria} name="Maria Dorotea" bib={1255} age={25} gender="F" time="14:35" score={45} />
+			<div style={{ margin: "0px", padding: "0px" }} className={(hasClass) ? 'slide-down' : 'slide-down height'}><MainStats cts={cts}/></div>
 		</div>
 	);
 }
