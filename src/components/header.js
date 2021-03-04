@@ -1,42 +1,38 @@
-import * as React from "react"
-import PropTypes from "prop-types"
-import { Link } from "gatsby"
+import React from 'react';
+import texture from '../images/texture.png';
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
+const HeaderStats = () => {
+   const st1 =  {
+	   display: "grid",
+	   gridTemplateColumns: "repeat(2, 1fr)",
+	   color: "white",
+	   backgroundImage: `url(${texture})`,
+	   padding: "10px 8px"
+   }
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
+   const st2 = {
+	fontFamily: "Roboto",
+	marginLeft: "30px",
+	opacity: "80%"
+   }
+
+   const st3 = {
+	display: "grid",
+	gridTemplateColumns: "repeat(5, 1fr)",
+	fontSize: "11px",
+	fontFamily: "Roboto",
+	alignContent: "flex-end"
+   }
+
+   const STATS_TITLES = ["BIB", "AGE", "GENDER", "TIME", "SCORE"];
+   const showTitles = STATS_TITLES.map((e, k) => (<p key={k} style={{textAlign: "center"}}>{e}</p>));
+
+   return(
+	<div style={st1}>
+		<h1 style={st2}>APOCALYPSE CITY</h1>
+		<nav style={st3}>{showTitles}</nav> 
+	</div>
+   )
 }
 
-Header.defaultProps = {
-  siteTitle: ``,
-}
-
-export default Header
+export default HeaderStats;
