@@ -7,3 +7,13 @@ body {
 	background-position: -200px 0px;
 	background-size: 90%
 }
+
+.slide-down {
+	overflow: hidden;
+	height: 0;
+	transition: height .5s ease-in-out;	
+}
+
+.height {
+	height: 100%;
+}
