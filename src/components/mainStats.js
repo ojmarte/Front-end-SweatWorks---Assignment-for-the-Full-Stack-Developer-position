@@ -21,32 +21,38 @@ const data1 = [{
 	color: "#854b9d"
 }]
 
-const MainStats = () => {
+const MainStats = ({ cts }) => {
 
    const st1 = {
 	   width: `calc(100% - 115px)`,
 	   display: "grid",
 	   marginLeft: "115px",
 	   backgroundColor: "white",
-	   opacity: "0.95"
+	   opacity: "0.95",
+	   fontFamily: "Roboto",
+	   padding: "10px 0px"
    }
+   const st1resp = { ...st1, width: "100%", marginLeft: "0px" }
+
    const st2 = {
 	   padding: "25px 0px"
    }
+   const st2resp = { ...st2, padding: "18px 0px 0px 0px"}
    
    const st3 = {
 	padding: "25px 0px",
 	
    }
+   const st3resp = { ...st3, padding: "18px 0px 0px 0px"}
 
 	return (
-		<div style={st1}>
-		    <div style={st2}>
-	 		{data1.map((a, b) => (<ProgressStats key={b} name={a.name} value={a.value} color={a.color} />))}
+		<div style={cts(st1, st1resp)}>
+		    <div style={cts(st2, st2resp)}>
+	 		{data1.map((a, b) => (<ProgressStats key={b} cts={cts}  name={a.name} value={a.value} color={a.color} />))}
 		    </div>
-		    <div style={st3}>
-			<DataStats />			
-                        <DataStats />	
+		    <div style={cts(st3, st3resp)}>
+			<DataStats cts={cts} />			
+                        <DataStats cts={cts} />	
 		    </div>
 		</div>
 	);
