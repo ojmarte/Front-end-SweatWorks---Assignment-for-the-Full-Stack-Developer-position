@@ -9,6 +9,8 @@ body {
 }
 
 .slide-down {
+	margin: 0;
+	padding: 0;
 	overflow: hidden;
 	height: 0;
 	transition: height .5s ease-in-out;	

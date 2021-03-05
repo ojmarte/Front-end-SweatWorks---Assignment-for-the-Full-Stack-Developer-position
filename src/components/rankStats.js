@@ -1,8 +1,8 @@
 import React from 'react';	
 import PropTypes from 'prop-types';
 
-const UserRanks = (props) => {
-   const { cts, rank, image, name, bib, age, gender, time, score }  = props;
+const UserRanks = ({ cts, info, values }) => {
+   const { rank, image, name, bib, age, gender }  = info;
 
    const st1 = {
 	display: "grid",
@@ -28,10 +28,7 @@ const UserRanks = (props) => {
 	height: "100%"
    }
 
-   const st4 = {
-	marginLeft: "40px",
-	color: "#2F4F4F"
-   }
+   const st4 = { marginLeft: "40px", color: "#2F4F4F" }
 
    const st5 = {
    	display: "grid",
@@ -56,9 +53,8 @@ const UserRanks = (props) => {
 	}
    }
 
-   const SCORE = [ bib, age, gender, time, score ];
-
-   const showScore = SCORE.map((e, k) => (<div key={k} style={st6(k)}>{e}</div>));
+   const infoToShow = [ bib, age, gender, values.time, values.score ];
+   const showInfo = infoToShow.map((e, k) => (<div key={k} style={st6(k)}>{e}</div>));
 
 	return (
 	   <div style={cts(st1, st1resp)}>
@@ -68,21 +64,16 @@ const UserRanks = (props) => {
 		<h3 style={st4}>{name}</h3>
 	      </div>	
 	      <div style={st5}>
-		{showScore}
+		{showInfo}
 	      </div>
 	   </div>
 	)
 }
 
 UserRanks.propTypes = {
-	rank: PropTypes.node,
-	image: PropTypes.node,
-	name: PropTypes.node,
-	bib: PropTypes.node,
-	age: PropTypes.node,
-	gender: PropTypes.node,
-	time: PropTypes.node,
-	score: PropTypes.node
+	cts: PropTypes.func.isRequired,
+	info: PropTypes.object,
+	values: PropTypes.object
 }
 
 export default UserRanks;

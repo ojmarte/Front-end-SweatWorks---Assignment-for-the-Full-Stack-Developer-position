@@ -1,11 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import texture from '../images/texture.png';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
 
-const HeaderStats = () => {
-   const matches = useMediaQuery('(max-width:768px'); //send to the hight order component
-   const chooseRightStyles = (matches, st1, st2) => ((matches) ? st2 : st1); //send to the high order component
-
+const HeaderStats = ({ cts  }) => {
    const st1 =  {
 	   display: "grid",
 	   gridTemplateColumns: "repeat(2, 1fr)",
@@ -30,15 +27,19 @@ const HeaderStats = () => {
 	alignContent: "flex-end"
    }
 
-   const STATS_TITLES = ["BIB", "AGE", "GENDER", "TIME", "SCORE"];
-   const showTitles = STATS_TITLES.map((e, k) => (<p key={k} style={{textAlign: "center"}}>{e}</p>));
+   const stats_titles = ["BIB", "AGE", "GENDER", "TIME", "SCORE"];
+   const showTitles = stats_titles.map((e, k) => (<p key={k} style={{textAlign: "center"}}>{e}</p>));
    
    return(
-	<div style={chooseRightStyles(matches, st1, st1resp)}>
-		<h1 style={chooseRightStyles(matches, st2, st2resp)}>APOCALYPSE CITY</h1>
+	<div style={cts(st1, st1resp)}>
+		<h1 style={cts(st2, st2resp)}>APOCALYPSE CITY</h1>
 		<nav style={st3}>{showTitles}</nav>
 	</div>
    )
+}
+
+HeaderStats.propTypes = {
+	cts: PropTypes.func.isRequired
 }
 
 export default HeaderStats;

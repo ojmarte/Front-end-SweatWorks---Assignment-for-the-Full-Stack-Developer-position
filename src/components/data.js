@@ -1,24 +1,39 @@
 import maria from "../images/maria.jpg";
 
-const personas = [{
-	rank: 1,
-	image: maria,
-	name: "Maria Mamañema",
-	bib: 1055,
-	age: 22,
-	gender: "M",
-	time: "12:33",
-	score: 1233
-}, {
-	rank: 2,
-	image: maria,
-	name: "Lusiana Maricona",
-	bib: 1254,
-	age: 25,
-	gender: "F",
-	time: "12:55",
-	score: 1121
-},
-];
+const data = {
+	info: {
+		rank: 1,
+		name: "Maria Dorotea",
+		gender: "F",
+		age: 26,
+		bib: 1200,
+		image: maria
+	},
+	stats: {
+		strength: 22,
+		endurance: 35,
+		dexterity: 88,
+		decision_making: 11
+	},
+	scenario: [{
+		title: "Post Apocalyptic Highways",
+		games: [{
+			rank: 1,
+			title: "Hill Climb",
+			badge: ["P", "R", "W", "F"],
+			time: "00:12:35",
+			score: 9
+		}]
+	}, {
+		title: "Costa Rican Caves",
+		games: [{
+			rank: 9,
+			title: "Dirty Armor",
+			badge: ["P", "", "", "F"],
+			time: "00:34:22",
+			score: 12
+		}]
+	}]
+}
 
-export default personas;
+export default data;
