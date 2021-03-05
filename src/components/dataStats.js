@@ -78,7 +78,7 @@ const DataStats = ({ cts, data, title }) => {
    const st9resp = { ...st9, padding: "5px 10px" }
 
    return (
-	<div style={st1}>
+	<div style={cts(st1, st1resp)}>
 	   <h3 style={cts(st9, st9resp)}>{title}</h3>
 	   {data.map((d, k) => (<RowInfo key={k} cts={cts} data={d} style={stylesRowInfo} />))} 
 	</div>
