@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import UserRank from './rankStats.js';
 import MainStats from './mainStats.js';
 import './layout.css';
-import maria from '../images/maria.jpg';
 
 const AllRankStats = ({ cts, data }) => {
     const { info, stats, scenario } = data;
@@ -14,15 +13,8 @@ const AllRankStats = ({ cts, data }) => {
    
     const values = { time: "00:12:22", score: 33 };
 
-    const st1 = {
-	margin: 0,
-	padding: 0,
-	cursor: "pointer",
-	transition: "all .5s ease-in-out"
-    }
-
 	return (
-		<div style={st1} onClick={turnOffClass} role="button" onKeyPress={0} tabIndex="0">
+		<div className="button" onClick={turnOffClass} role="button" onKeyPress={null} tabIndex={-1}>
 			<UserRank cts={cts} info={info} values={values} />
 			<div className={currentClass}>
 		            <MainStats cts={cts} data={{ stats, scenario }} />
