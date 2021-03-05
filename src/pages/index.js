@@ -4,6 +4,7 @@ import Layout from "../components/layout.js";
 import Stats from "../components/stats.js";
 import AllRankStats from '../components/lastStats.js';
 
+import data from '../components/data.js'
 
 const IndexPage = () => {
    const matches = useMediaQuery('(max-width:768px)'); 
@@ -11,9 +12,10 @@ const IndexPage = () => {
  
 	return (
   	<Layout> 
-            <Stats>
-		<AllRankStats cts={chooseRightStyles}/>	
-		<AllRankStats cts={chooseRightStyles}/>	  
+            <Stats cts={chooseRightStyles} >
+		<AllRankStats cts={chooseRightStyles} data={data} />	
+		<AllRankStats cts={chooseRightStyles} data={data} />	  
+		<AllRankStats cts={chooseRightStyles} data={data} />	
 	    </Stats>
   	</Layout>
 	)
