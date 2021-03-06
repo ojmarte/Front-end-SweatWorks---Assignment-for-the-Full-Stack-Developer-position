@@ -19,7 +19,7 @@ git clone <git lab tempalte url><project_name>
 - install dependencies
 ```
 
-cd ChallengeSweatWorks/
+cd Front-end-SweatWorks---Assignment-for-the-Full-Stack-Developer-position/
 npm install
 ```
 - Buil and run the project
