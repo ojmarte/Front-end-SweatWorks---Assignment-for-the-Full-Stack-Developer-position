@@ -13,7 +13,7 @@
 - Clone the respository
 ```
 
-git clone <git lab tempalte url><project_name>
+git clone https://github.com/ojmarte/Front-end-SweatWorks---Assignment-for-the-Full-Stack-Developer-position.git
 ```
 
 - install dependencies
