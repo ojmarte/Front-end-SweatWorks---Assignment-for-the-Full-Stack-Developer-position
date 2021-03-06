@@ -57,7 +57,9 @@ const DataStats = ({ cts, data, title }) => {
            borderLeftColor: "Silver",
 	   borderLeftWidth: "2.5px", 
 	   borderLeftStyle: "dotted",
-	   color: "black"
+	   color: "black",
+	   display: "grid",
+	   alignContent: "center"
    }
    const st7resp = { ...st7, fontSize: "10px", padding: "0px 3px" }
 

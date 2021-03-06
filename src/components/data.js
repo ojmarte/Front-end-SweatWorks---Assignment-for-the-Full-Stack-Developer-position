@@ -1,13 +1,11 @@
-import maria from "../images/maria.jpg";
-
-const data = {
+const data = [{
 	info: {
 		rank: 1,
 		name: "Maria Dorotea",
 		gender: "F",
 		age: 26,
 		bib: 1200,
-		image: maria
+		image: `url('http://psicologiayautoayuda.com/wp-content/uploads/2016/05/personas-toxicas.jpg')`
 	},
 	stats: {
 		strength: 22,
@@ -34,6 +32,8 @@ const data = {
 			score: 12
 		}]
 	}]
-}
+}];
 
-export default data;
+for (let i = 0; i < 50; i++) data.push(data[0]);
+
+module.exports = data;
